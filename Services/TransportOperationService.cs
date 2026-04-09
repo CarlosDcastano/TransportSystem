@@ -134,4 +134,14 @@ public class TransportOperationService
         var baseCost  = service.Vehicle.RatePerKm * (decimal)service.DistanceKm;
         var surcharge = service.DistanceKm > LongDistanceThreshold
             ? SurchargePerKmLong * (decimal)service.DistanceKm
-            :
+            : 0;
+
+        return baseCost + surcharge;
+    }
+
+    public async Task<IEnumerable<TransportService>> GetAllServicesAsync() =>
+        await _serviceRepo.GetAllWithDetailsAsync();
+
+    public async Task<IEnumerable<TransportService>> GetByStatusAsync(ServiceStatus status) =>
+        await _serviceRepo.GetByStatusAsync(status);
+}

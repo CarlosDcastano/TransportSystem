@@ -21,4 +21,7 @@ public class TransportService
 
     public int? VehicleId { get; set; }
     public Vehicle? Vehicle { get; set; }
+    
+    public bool HasFullAssignment => DriverId.HasValue && VehicleId.HasValue;
+
 }
