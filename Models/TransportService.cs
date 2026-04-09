@@ -17,5 +17,8 @@ public class TransportService
     public decimal TotalCost { get; set; } = 0;
 
     public int? DriverId { get; set; }
+    public Driver? Driver { get; set; }
+
     public int? VehicleId { get; set; }
+    public Vehicle? Vehicle { get; set; }
 }
